@@ -30,5 +30,7 @@ urlpatterns = [
     path('updateuser/', app_views.updateuser),
     path('game/', app_views.game),
     path('updategame/', app_views.updategame),
+    # path('socket/', app_views.socket),
+    # path('chat/', app_views.chat),
 
 ]

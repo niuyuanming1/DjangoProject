@@ -2,10 +2,25 @@
 import json
 from django.shortcuts import render, HttpResponse
 from appname import testdb as test
-import appname.user.user_manage as User
+import appname.user.user_manage as Users
 from appname.game2048.url import GameView
+from appname.chat.chat_client import *
+from appname.chat.chat_server import *
+from appname.entity_class.result_manage import *
+import socket as s
+from socket import *
 
 
+# def socket(request):
+#     server_main(request)
+#     res = {"status": 200}
+#     return HttpResponse(json.dumps(res))
+#
+# def chat(request):
+#     client_main(request)
+#
+#     res = {"status": 200}
+#     return HttpResponse(json.dumps(res))
 def index(request):
     return render(request, 'index.html')
 
@@ -21,7 +36,7 @@ def hello(request):
 
 
 def login(request):
-    if User.login_user(request):
+    if Users.login_user(request):
         res = {"status": 200}
     else:
         res = {"status": 400}
@@ -29,7 +44,7 @@ def login(request):
 
 
 def register(request):
-    if User.add_user(request):
+    if Users.add_user(request):
         res = {"status": 200}
     else:
         res = {"status": 400}
@@ -37,7 +52,7 @@ def register(request):
 
 
 def homepage(request):
-    active_user = User.select_active_user(request)
+    active_user = Users.select_active_user(request)
     if active_user != None:
         res = {"status": 200,
                "email": active_user.email,
@@ -51,7 +66,7 @@ def homepage(request):
 
 
 def alluser(request):
-    all_user_list = User.select_all_user(request)
+    all_user_list = Users.select_all_user(request)
     if len(all_user_list) > 0:
         dict_user = {}
         i = 0
@@ -60,22 +75,24 @@ def alluser(request):
             dict_user[i] = {"id": item.id, "email": item.email, "userName": item.userName,
                             "phoneNumber": item.phoneNumber,
                             "passWord": item.passWord}
+
         res = {"status": 200, "resule": dict_user}
     else:
         res = {"status": 400}
-    return HttpResponse(json.dumps(res))
+    return HttpResponse(json.dumps(res), content_type='application/json')
 
 
 def deleteuser(request):
-    if User.delete_user(request):
+    if Users.delete_user(request):
         res = {"status": 200, "deleteid": eval(request.body.decode())["id"]}
     else:
         res = {"status": 400}
     return HttpResponse(json.dumps(res))
+    return JsonRespons
 
 
 def updateuser(request):
-    if User.updateuser(request):
+    if Users.updateuser(request):
         res = {"status": 200}
     else:
         res = {"status": 400}
@@ -87,10 +104,13 @@ def game(request):
     map = view.start()
     res = {"status": 200, "result": map}
     return HttpResponse(json.dumps(res))
+
+
 def updategame(request):
     user_input = eval(request.body)[0]  # 上38下40左 37右39
     last_list = eval(request.body)[1]
     view = GameView()
-    map = view.update_map(user_input,last_list)
+    map = view.update_map(user_input, last_list)
     res = {"status": 200, "result": map}
     return HttpResponse(json.dumps(res))
+
