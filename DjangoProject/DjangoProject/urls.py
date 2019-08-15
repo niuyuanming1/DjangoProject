@@ -19,18 +19,18 @@ from appname import views as app_views
 
 
 urlpatterns = [
-    path('', app_views.index),
-    path('admin/', admin.site.urls),
-    path('hello/', app_views.hello),
-    path('login/', app_views.login),
-    path('register/', app_views.register),
-    path('homepage/', app_views.homepage),
-    path('alluser/', app_views.alluser),
-    path('deleteuser/', app_views.deleteuser),
-    path('updateuser/', app_views.updateuser),
-    path('game/', app_views.game),
-    path('updategame/', app_views.updategame),
-    # path('socket/', app_views.socket),
-    # path('chat/', app_views.chat),
+        path('', app_views.index),
+        path('admin/', admin.site.urls),
+        path('hello/', app_views.hello),
+        path('login/', app_views.login),
+        path('register/', app_views.register),
+        path('homepage/', app_views.homepage),
+        path('alluser/', app_views.alluser),
+        path('deleteuser/', app_views.deleteuser),
+        path('updateuser/', app_views.updateuser),
+        path('game/', app_views.game),
+        path('updategame/', app_views.updategame),
+        # path('socket/', app_views.socket),
+        # path('chat/', app_views.chat),
 
 ]
