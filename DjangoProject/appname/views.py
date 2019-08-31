@@ -4,6 +4,9 @@ from django.shortcuts import render, HttpResponse
 from appname import testdb as test
 import appname.user.user_manage as Users
 from appname.game2048.url import GameView
+from appname.entity_class.yun_dish import YunDish
+from appname.mongodb.mongodb import Mongodb
+from threading import Thread
 from appname.chat.chat_client import *
 from appname.chat.chat_server import *
 from appname.entity_class.result_manage import *
@@ -114,3 +117,45 @@ def updategame(request):
     res = {"status": 200, "result": map}
     return HttpResponse(json.dumps(res))
 
+
+def yun(request):
+    userName = eval(request.body.decode())["userName"]
+    all_list = YunDish().select_all(userName)
+    result_list = []
+    for item in all_list:
+        dict_ = {}
+        dict_["id"] = item.id
+        dict_["name"] = item.name
+        dict_["url"] = item.url
+        dict_["size"] = item.size
+        dict_["userName"] = item.userName
+        result_list.append(dict_)
+    res = {"status": 200, "result": result_list}
+    return HttpResponse(json.dumps(res))
+def yun_insert(request):
+    userName = eval(request.body.decode())["userName"]
+    url = eval(request.body.decode())["url"]
+    filename = eval(request.body.decode())["filename"]
+    filesize = eval(request.body.decode())["size"]
+    insert = YunDish().insert_one(filename,url,filesize,userName)
+    if insert:
+        res = {"status": 200}
+    else:
+        res = {"status": 400}
+    return HttpResponse(json.dumps(res))
+def yun_delete(request):
+    fileid = eval(request.body.decode())["id"]
+    delete = YunDish().delete(fileid)
+    if delete:
+        res = {"status": 200}
+    else:
+        res = {"status": 400}
+    return HttpResponse(json.dumps(res))
+
+def get_columnar_data(request):
+    list_ = Mongodb().find_all()
+    dict_ = {}
+    for i in list_:
+        dict_[i["书名"]]=i["评分"]
+    res = {"status": 200, "result": dict_}
+    return HttpResponse(json.dumps(res))

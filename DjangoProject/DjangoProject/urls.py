@@ -32,5 +32,9 @@ urlpatterns = [
         path('updategame/', app_views.updategame),
         # path('socket/', app_views.socket),
         # path('chat/', app_views.chat),
+        path('yundish/', app_views.yun),
+        path('yuninsert/', app_views.yun_insert),
+        path('yundelete/', app_views.yun_delete),
+        path('get_columnar_data/', app_views.get_columnar_data),
 
 ]
