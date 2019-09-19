@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="242983d6-1a0b-4cea-94bc-cf80fea13631" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/appname/entity_class/yun_dish.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/appname/mongodb/mongodb.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoProject/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DjangoProject/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoProject/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appname/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/appname/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appname/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/appname/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/appname/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/appname/views.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,7 +25,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="D:/HelloWorld" />
+    <property name="last_opened_file_path" value="D:/react/ReactProject1" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -124,7 +121,26 @@
       <workItem from="1567052052273" duration="3317000" />
       <workItem from="1567160824614" duration="7202000" />
       <workItem from="1567174408603" duration="1214000" />
-      <workItem from="1567217455500" duration="8131000" />
+      <workItem from="1567217455500" duration="10882000" />
+      <workItem from="1567334742157" duration="54000" />
+      <workItem from="1567429022122" duration="631000" />
+      <workItem from="1567436051514" duration="980000" />
+      <workItem from="1567470136580" duration="1520000" />
+      <workItem from="1567514381599" duration="887000" />
+      <workItem from="1567591392348" duration="456000" />
+      <workItem from="1567738314202" duration="3945000" />
+      <workItem from="1567749891420" duration="666000" />
+      <workItem from="1567848484118" duration="756000" />
+      <workItem from="1567915012039" duration="30000" />
+      <workItem from="1568090874222" duration="660000" />
+      <workItem from="1568099281143" duration="3040000" />
+      <workItem from="1568164159192" duration="293000" />
+      <workItem from="1568711462272" duration="692000" />
+      <workItem from="1568781925879" duration="1239000" />
+      <workItem from="1568804214130" duration="5321000" />
+      <workItem from="1568815467785" duration="5783000" />
+      <workItem from="1568821596131" duration="316000" />
+      <workItem from="1568853965667" duration="806000" />
     </task>
     <servers />
   </component>

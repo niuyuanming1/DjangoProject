@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from appname import views as app_views
-
+from django.conf.urls import url
 
 urlpatterns = [
         path('', app_views.index),
@@ -36,5 +36,7 @@ urlpatterns = [
         path('yuninsert/', app_views.yun_insert),
         path('yundelete/', app_views.yun_delete),
         path('get_columnar_data/', app_views.get_columnar_data),
+        url(r'^email/$',app_views.email),
+        url(r'^export/$',app_views.export_csv),
 
 ]

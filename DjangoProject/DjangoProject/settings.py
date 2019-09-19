@@ -13,23 +13,26 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+# 生成加密随机数
 SECRET_KEY = '0y#%88x)c!l6y^in%far18!i@yfx!&40l-8tb)c*9jc*9q!)4m'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# 生产环境改为Flase，为True时修改为热加载，只有开发时使用。
 DEBUG = True
 
+# 谁能访问我
 ALLOWED_HOSTS = ['*']
 
 
 # Application definition
-
+# 所有已安装的应用
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -40,21 +43,21 @@ INSTALLED_APPS = [
     'appname',
     # 'corsheaders',
 ]
-
+# 中间件
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
-   # 'django.middleware.csrf.CsrfViewMiddleware',
+   # 'django.middleware.csrf.CsrfViewMiddleware',   跨域请求的中间件
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
 ]
-
+# 主路由的地址
 ROOT_URLCONF = 'DjangoProject.urls'
-
+# 模板相关的配置
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -70,16 +73,16 @@ TEMPLATES = [
         },
     },
 ]
-
+# 部署的时候
 WSGI_APPLICATION = 'DjangoProject.wsgi.application'
 
 
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
-
+# 数据库相关的配置
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
+        'ENGINE': 'django.db.backends.mysql',  # 引擎
         'NAME': 'demo',
         'USER': 'root',
         'PASSWORD': '123456',
@@ -110,10 +113,10 @@ AUTH_PASSWORD_VALIDATORS = [
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
-
+# 语言    'zh-Hans'设置为中文
 LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
+# 时区 'UTC':格林威治  'Asia/Shanghai':北京时间
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
@@ -153,3 +156,11 @@ CORS_ALLOW_HEADERS = (
     'x-csrftoken',
     'x-requested-with',
 )
+
+# 发送邮件设置
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend' # 固定写法
+EMAIL_HOST = 'smtp.163.com' # 腾讯QQ邮箱 SMTP 服务器地址
+EMAIL_PORT = 25  # SMTP服务的端口号
+EMAIL_HOST_USER = 'ding_t_f@163.com'  # 发送邮件的QQ邮箱
+EMAIL_HOST_PASSWORD = 'DTF961208'  # 邮箱的授权码(即QQ密码)
+EMAIL_USE_TLS = True  # 与SMTP服务器通信时，是否启动TLS链接(安全链接)默认false
